@@ -5,6 +5,11 @@ export const ProductsService = {
 	findAll() {
 		return db(TABLE_NAME).select("*");
 	},
+	getById(id) {
+		return db(TABLE_NAME)
+		.where("id", product.id)
+		.getById(id);
+	},
 	insert(product) {
 		return db(TABLE_NAME).insert(product);
 	},

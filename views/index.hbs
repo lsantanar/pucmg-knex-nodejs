@@ -1,11 +1,32 @@
-<h1>Store</h1>
-<p>Welcome to our product store</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/nodejs-knex/public/stylesheets/style.css">
+    <title>Store</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Store</h1>
+    </div>
+    
+    <p>Welcome to our product store</p>
 
-<ul>
-    {{#each products}}
-        <li>
-            <p><b>{{this.name}}</b>: {{this.description}}</p>
-            <p><b>Price</b>: ${{this.price}}</p>
-        </li>
-    {{/each}}
-</ul>
+    <ul>
+        {{#each products}}
+            <li>
+                <p><b>{{this.name}}</b>: {{this.description}}</p>
+                <p><b>Price</b>: ${{this.price}}</p>
+            </li>
+            <form class="form" action="/products" method="POST">
+                <input type="text" name="name" placeholder="Nome"/>
+                <input type="text" name="avaliacao" placeholder="Avalie o produto" size="50" maxlength="200" /> 
+                <button type="submit">Enviar</button>
+            </form> 
+        {{/each}}
+    </ul>   
+</body>
+</html>
+

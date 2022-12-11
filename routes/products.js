@@ -9,11 +9,11 @@ router.get("/", function (_, res) {
 	});
 });
 
-// router.get("/", function (_, res) {
-// 	ProductsService.findAll().then((products) => {
-// 		res.json(products);
-// 	});
-// });
+router.get("/:id", function (_, res) {
+	ProductsService.findAll().then((products) => {
+		res.json(products);
+	});
+});
 
 router.delete("/:id", function (req, res) {
 	const { id } = req.params;
@@ -35,6 +35,13 @@ router.put("/", function (req, res) {
 	const { body } = req;
 	ProductsService.update(body).then((product) => {
 		res.json(product);
+	});
+});
+
+router.get('/', function(req, res, next) { 
+	res.render('Comentários:', {
+		author: req.params.author,
+		comment: req.params.comment
 	});
 });
 
